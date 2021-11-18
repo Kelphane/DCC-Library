@@ -1,13 +1,14 @@
 import React, {Component} from "react";
 import './App.css';
 import TitleBar from './TitleBar/TitleBar';
+import BookViewer from "./BookViewer/BookViewer";
 
 class App extends Component{
     constructor(props){
         super(props);
         this.books = [
-            {title: "Ready Player One", author: "Earnest"},
-            {title: "Starry Night", author: "Bob"}
+            {name: "Ready Player One", author: "Earnest"},
+            {name: "Starry Night", author: "Bob"}
         ];
         this.state = {
             bookNumber: 0
@@ -37,22 +38,8 @@ class App extends Component{
     render(){
         return (
             <div>    
-                <div className='titlebar-nav'>
-                    <TitleBar className='container-fluid' />
-                </div>
-                    
-                <div className="col-md-4">
-                    <button onClick={this.goToPreviousBook}>Previous Book</button>
-                </div>
-
-                <div className="col-md-4">
-                    <h2>{this.books[this.state.bookNumber].title}</h2>
-                    <h2>{this.books[this.state.bookNumber].author}</h2>
-                </div>
-
-                <div className="col-md-4">
-                    <button onClick={this.goToNextBook}>Next Book</button>
-                </div>
+                <TitleBar className='container-fluid' />
+                <BookViewer nextBook={this.goToNextBook} prevBook={this.goToPreviousBook} book={this.books[this.state.bookNumber]}/>
             </div>
         );
     }
