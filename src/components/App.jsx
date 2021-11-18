@@ -36,12 +36,16 @@ class App extends Component{
         this.setState({bookNumber: tempBookNumber});
     }
 
+    submitBook = (book) => {
+        this.books.push(book);
+    }
+
     render(){
         return (
             <div>    
                 <TitleBar />
                 <BookViewer nextBook={this.goToNextBook} prevBook={this.goToPreviousBook} book={this.books[this.state.bookNumber]}/>
-                <CreateBook />
+                <CreateBook createBook={this.submitBook} />
             </div>
         );
     }

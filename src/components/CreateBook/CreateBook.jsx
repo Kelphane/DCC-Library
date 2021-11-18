@@ -9,19 +9,30 @@ class CreateBook extends Component {
             author: ""
         };
     }
+    
+    handleChange = (event) => {
+        this.setState({
+            [event.target.name]: event.target.value
+        });
+    }
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+        this.props.createBook(this.state);
+    }
 
     render(){
         return (
-            <form className="form">
+            <form className="form" onSubmit={this.handleSubmit}>
                 <label>
                     Name:
-                    <input type="text" />
+                    <input type="text" name="name" onChange={this.handleChange} />
                 </label>
                 <label>
                     Author:
-                    <input />
+                    <input type="text" name="author" onChange={this.handleChange} />
                 </label>
-                <button>Submit</button>
+                <button type="submit">Submit</button>
             </form>
         );
     }
