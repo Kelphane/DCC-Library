@@ -1,0 +1,15 @@
+.book-viewer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 1%;
+    padding: 5;
+
+}
+
+.book-viewer div {
+    text-align: center;
+}

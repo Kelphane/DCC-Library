@@ -1,16 +1,17 @@
 import React from "react";
+import "./BookViewer.css";
+import Book from "../Book/Book";
 
 const BookViewer = (props) => {
 
     return (
-        <div>    
+        <div className="book-viewer">    
             <div>
                 <button onClick={props.prevBook}>Previous Book</button>
             </div>
 
             <div>
-                <h2>{props.book.name}</h2>
-                <h2>{props.book.author}</h2>
+                <Book book={props.book} />
             </div>
 
             <div>
