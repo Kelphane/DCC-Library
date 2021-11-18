@@ -25,23 +25,33 @@ class App extends Component{
         });
     }
 
+    goToPreviousBook = () => {
+        let tempBookNumber = this.state.bookNumber;
+        tempBookNumber--;
+        if(tempBookNumber < 0){
+            tempBookNumber = this.books.length - 1;
+        }
+        this.setState({bookNumber: tempBookNumber});
+    }
+
     render(){
         return (
             <div>    
                 <div className='titlebar-nav'>
                     <TitleBar className='container-fluid' />
                 </div>
-
+                    
                 <div className="col-md-4">
-                    <h1>First Div</h1>
+                    <button onClick={this.goToPreviousBook}>Previous Book</button>
                 </div>
 
                 <div className="col-md-4">
-                    <h2>Second Div</h2>
+                    <h2>{this.books[this.state.bookNumber].title}</h2>
+                    <h2>{this.books[this.state.bookNumber].author}</h2>
                 </div>
 
                 <div className="col-md-4">
-                    <h2>Third Div</h2>
+                    <button onClick={this.goToNextBook}>Next Book</button>
                 </div>
             </div>
         );
